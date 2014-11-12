@@ -1,0 +1,33 @@
+{
+  "name": "node-px2rem",
+  "version": "0.0.2",
+  "description": "Pixel to rem postproccessor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ggkovacs/node-px2rem.git"
+  },
+  "keywords": [
+    "css",
+    "parser",
+    "postproccessor",
+    "rem",
+    "responsive"
+  ],
+  "author": "Gergely Kovács",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ggkovacs/node-px2rem/issues"
+  },
+  "homepage": "https://github.com/ggkovacs/node-px2rem",
+  "dependencies": {
+    "extend": "^2.0.0",
+    "postcss": "~2.2.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}

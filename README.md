@@ -1,9 +1,9 @@
 # Pixel to rem
-Version: **0.0.1**
+Version: **0.0.2**
 
 ## Installation
 
-Run `npm install node-pxtorem`
+Run `npm install node-px2rem`
 
 ## Usage
 

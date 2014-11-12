@@ -91,6 +91,32 @@ function toFixed(number, precision) {
 }
 
 /**
+ * Px replace
+ * @param  {String} $1
+ * @return {Number}
+ */
+function pxReplace($1) {
+    $1 = parseFloat($1);
+    if (defaults.minPx >= $1) {
+        return $1 + 'px';
+    }
+    return toFixed($1 / toPx(defaults.rootValue), defaults.unitPrecision) + 'rem';
+}
+
+/**
+ * Equals
+ * @param  {Object} decls
+ * @param  {String} prop
+ * @param  {String} value
+ * @return {Boolean}
+ */
+function equals(decls, prop, value) {
+    return decls.some(function(decl) {
+        return (decl.prop === prop && decl.value === value);
+    });
+}
+
+/**
  * Pixel to rem
  * @param {Object} options
  */
@@ -102,8 +128,9 @@ function PxToRem(options) {
 
 /**
  * Process
- * @param {String} css
- * @param {Object} options
+ * @param  {String} css
+ * @param  {Object} options
+ * @return {Object}
  */
 PxToRem.prototype.process = function(css, options) {
     return postcss(this.postCss).process(css, options).css;
@@ -123,28 +150,39 @@ PxToRem.prototype.postCss = function(css) {
         var value = decl.value;
 
         if (value.indexOf('px') !== -1) {
-            value = value.replace(pxRegEx, function($1) {
-                $1 = parseFloat($1);
-                if (defaults.minPx >= $1) {
-                    return $1 + 'px';
-                }
-                return toFixed($1 / toPx(defaults.rootValue), defaults.unitPrecision) + 'rem';
-            });
-        }
+            value = value.replace(pxRegEx, pxReplace);
 
-        if (!defaults.replace && decl.value !== value) {
-            rule.insertAfter(i, decl.clone({
-                value: value
-            }));
-        } else {
-            decl.value = value;
+            if (equals(rule.decls, decl.prop, value)) {
+                return;
+            }
+
+            if (defaults.replace) {
+                decl.value = value;
+            } else {
+                rule.insertAfter(i, decl.clone({
+                    value: value
+                }));
+            }
         }
     });
+
+    if (defaults.mediaQuery) {
+        css.each(function(rule) {
+            if (rule.type !== 'atrule' && rule.name !== 'media') {
+                return;
+            }
+
+            if (rule.params.indexOf('px') !== -1) {
+                rule.params = rule.params.replace(pxRegEx, pxReplace);
+            }
+        });
+    }
 };
 
 /**
  * Pixel to rem
- * @param {Object} options
+ * @param  {Object} options
+ * @return {Object}
  */
 var pxtorem = function(options) {
     return new PxToRem(options);
@@ -152,9 +190,10 @@ var pxtorem = function(options) {
 
 /**
  * Process
- * @param {String} css
- * @param {Object} options
- * @param {Object} postCssOptions
+ * @param  {String} css
+ * @param  {Object} options
+ * @param  {Object} postCssOptions
+ * @return {Object}
  */
 pxtorem.process = function(css, options, postCssOptions) {
     return new PxToRem(options).process(css, postCssOptions);

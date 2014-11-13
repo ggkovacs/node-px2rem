@@ -152,7 +152,7 @@ PxToRem.prototype.postCss = function(css) {
         if (value.indexOf('px') !== -1) {
             value = value.replace(pxRegEx, pxReplace);
 
-            if (equals(rule.decls, decl.prop, value)) {
+            if (equals(rule.childs, decl.prop, value)) {
                 return;
             }
 

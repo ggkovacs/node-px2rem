@@ -120,7 +120,7 @@ function equals(decls, prop, value) {
  * Pixel to rem
  * @param {Object} options
  */
-function PxToRem(options) {
+function Px2Rem(options) {
     if (options) {
         defaults = extend(true, {}, defaults, options);
     }
@@ -132,7 +132,7 @@ function PxToRem(options) {
  * @param  {Object} options
  * @return {Object}
  */
-PxToRem.prototype.process = function(css, options) {
+Px2Rem.prototype.process = function(css, options) {
     return postcss(this.postCss).process(css, options).css;
 };
 
@@ -140,7 +140,7 @@ PxToRem.prototype.process = function(css, options) {
  * Post css
  * @param {String} css
  */
-PxToRem.prototype.postCss = function(css) {
+Px2Rem.prototype.postCss = function(css) {
     css.eachDecl(function(decl, i) {
         if (defaults.propertyBlackList.indexOf(decl.prop) !== -1) {
             return;
@@ -184,8 +184,8 @@ PxToRem.prototype.postCss = function(css) {
  * @param  {Object} options
  * @return {Object}
  */
-var pxtorem = function(options) {
-    return new PxToRem(options);
+var px2rem = function(options) {
+    return new Px2Rem(options);
 };
 
 /**
@@ -195,8 +195,8 @@ var pxtorem = function(options) {
  * @param  {Object} postCssOptions
  * @return {Object}
  */
-pxtorem.process = function(css, options, postCssOptions) {
-    return new PxToRem(options).process(css, postCssOptions);
+px2rem.process = function(css, options, postCssOptions) {
+    return new Px2Rem(options).process(css, postCssOptions);
 };
 
-module.exports = pxtorem;
+module.exports = px2rem;

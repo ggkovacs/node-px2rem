@@ -1,5 +1,5 @@
 # Pixel to rem
-Version: **1.0.1**
+Version: **1.0.2**
 
 ## Installation
 
@@ -11,9 +11,9 @@ Run `npm install node-px2rem`
 'use strict';
 
 var fs = require('fs');
-var pxtorem = require('pxtorem');
+var px2rem = require('node-px2rem');
 var css = fs.readFileSync('main.css', 'utf8');
-var processedCss = pxtorem.process(css, {
+var processedCss = px2rem.process(css, {
     rootValue: 16
 });
 

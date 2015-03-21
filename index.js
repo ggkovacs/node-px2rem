@@ -37,6 +37,7 @@ var defaults = {
 
     /**
      * Property white list
+     * @type {Array}
      */
     propertyWhiteList: [],
 

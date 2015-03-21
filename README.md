@@ -36,6 +36,7 @@ Default:
     rootValue: 16,
     unitPrecision: 5,
     propertyBlackList: [],
+    propertyWhiteList: [],
     replace: false,
     mediaQuery: false,
     minPx: 1
@@ -45,7 +46,7 @@ Default:
 - `rootValue` (Number) The root element font size.
 - `unitPrecision` (Number) The decimal numbers to allow the REM units to grow to.
 - `propertyBlackList` (Array) The properties that can't change from px to rem.
-- `propWhiteList` (Array) The properties that can change from px to rem
+- `propertyWhiteList` (Array) The properties that can change from px to rem
 - `replace` (Boolean) replaces rules containing rems instead of adding fallbacks.
 - `mediaQuery` (Boolean) Allow px to be converted in media queries.
 - `minPx` (Number) If minimum px greater than or equal can change from px to rem.

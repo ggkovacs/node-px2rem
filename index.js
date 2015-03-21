@@ -36,6 +36,11 @@ var defaults = {
     propertyBlackList: [],
 
     /**
+     * Property white list
+     */
+    propertyWhiteList: [],
+
+    /**
      * Replace
      * @type {Boolean}
      */
@@ -146,13 +151,18 @@ Px2Rem.prototype.postCss = function(css) {
             return;
         }
 
+        if (defaults.propertyWhiteList.length > 0 &&
+            defaults.propertyWhiteList.indexOf(decl.prop) === -1) {
+            return;
+        }
+
         var rule = decl.parent;
         var value = decl.value;
 
         if (value.indexOf('px') !== -1) {
             value = value.replace(pxRegEx, pxReplace);
 
-            if (equals(rule.childs, decl.prop, value)) {
+            if (equals(rule.nodes, decl.prop, value)) {
                 return;
             }
 

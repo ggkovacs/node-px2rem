@@ -1,5 +1,5 @@
 # Pixel to rem
-Version: **1.0.2**
+Version: **1.0.3**
 
 ## Installation
 
@@ -45,9 +45,10 @@ Default:
 - `rootValue` (Number) The root element font size.
 - `unitPrecision` (Number) The decimal numbers to allow the REM units to grow to.
 - `propertyBlackList` (Array) The properties that can't change from px to rem.
+- `propWhiteList` (Array) The properties that can change from px to rem
 - `replace` (Boolean) replaces rules containing rems instead of adding fallbacks.
 - `mediaQuery` (Boolean) Allow px to be converted in media queries.
 - `minPx` (Number) If minimum px greater than or equal can change from px to rem.
 
 # License
-MIT (c) 2014 Gergely Kovács (gg.kovacs@gmail.com)
+MIT (c) 2015 Gergely Kovács (gg.kovacs@gmail.com)

@@ -1,4 +1,4 @@
-# Pixel to rem
+# Pixel to rem [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
 Version: **1.0.3**
 
 ## Installation
@@ -52,4 +52,9 @@ Default:
 - `minPx` (Number) If minimum px greater than or equal can change from px to rem.
 
 # License
-MIT (c) 2015 Gergely Kovács (gg.kovacs@gmail.com)
+MIT © 2015 Gergely Kovács (gg.kovacs@gmail.com)
+
+[npm-image]: https://badge.fury.io/js/node-px2rem.svg
+[npm-url]: https://npmjs.org/package/node-px2rem
+[daviddm-image]: https://david-dm.org/ggkovacs/node-px2rem.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/ggkovacs/node-px2rem

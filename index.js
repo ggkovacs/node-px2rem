@@ -57,7 +57,7 @@ var defaults = {
      * Min pixel
      * @type {Number}
      */
-    minPx: 1
+    minPx: 1,
 };
 
 /**
@@ -72,11 +72,9 @@ function toPx(value) {
 
     if (unit === 'px' || unit === '') {
         return parseFloat(number);
-    }
-    else if (unit === 'em' || unit === 'rem') {
+    } else if (unit === 'em' || unit === 'rem') {
         return parseFloat(number) * 16;
-    }
-    else if (unit === '%') {
+    } else if (unit === '%') {
         return (parseFloat(number) / 100) * 16;
     }
 
@@ -106,6 +104,7 @@ function pxReplace($1) {
     if (defaults.minPx >= $1) {
         return $1 + 'px';
     }
+
     return toFixed($1 / toPx(defaults.rootValue), defaults.unitPrecision) + 'rem';
 }
 
@@ -171,7 +170,7 @@ Px2Rem.prototype.postCss = function(css) {
                 decl.value = value;
             } else {
                 rule.insertAfter(i, decl.clone({
-                    value: value
+                    value: value,
                 }));
             }
         }

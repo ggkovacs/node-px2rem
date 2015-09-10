@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/ggkovacs/node-px2rem",
   "dependencies": {
-    "extend": "^2.0.0",
-    "postcss": "^4.0.6"
+    "extend": "^3.0.0",
+    "postcss": "^5.0.4"
   },
   "engines": {
     "node": ">=0.10.0"

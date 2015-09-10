@@ -146,7 +146,7 @@ Px2Rem.prototype.process = function(css, options) {
  * @param {String} css
  */
 Px2Rem.prototype.postCss = function(css) {
-    css.eachDecl(function(decl, i) {
+    css.walkDecls(function(decl, i) {
         if (defaults.propertyBlackList.indexOf(decl.prop) !== -1) {
             return;
         }

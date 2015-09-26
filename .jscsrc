@@ -27,8 +27,12 @@
   "disallowTrailingWhitespace": true,
   "requireTrailingComma": { "ignoreSingleLine": true },
   "disallowYodaConditions": true,
-  "disallowKeywords": [ "with" ],
-  "disallowKeywordsOnNewLine": ["else"],
+  "disallowKeywords": [
+    "with"
+  ],
+  "disallowKeywordsOnNewLine": [
+    "else"
+  ],
   "disallowMultipleLineBreaks": true,
   "disallowMultipleLineStrings": true,
   "disallowMultipleVarDecl": true,
@@ -48,7 +52,15 @@
   "requireSpacesInForStatement": true,
   "requireSpaceBetweenArguments": true,
   "requireCurlyBraces": [
-    "do"
+    "if",
+    "else",
+    "for",
+    "while",
+    "do",
+    "try",
+    "catch",
+    "case",
+    "default"
   ],
   "requireSpaceAfterKeywords": [
     "if",

@@ -1,4 +1,4 @@
-# Pixel to rem [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# Pixel to rem [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status][coverage-image]][coverage-url]
 Version: **1.1.0**
 
 ## Installation
@@ -57,5 +57,9 @@ MIT © 2016 Gergely Kovács (gg.kovacs@gmail.com)
 
 [npm-image]: https://badge.fury.io/js/node-px2rem.svg
 [npm-url]: https://npmjs.org/package/node-px2rem
+[travis-image]: https://travis-ci.org/ggkovacs/node-px2rem.svg?branch=master
+[travis-url]: https://travis-ci.org/ggkovacs/node-px2rem
 [daviddm-image]: https://david-dm.org/ggkovacs/node-px2rem.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/ggkovacs/node-px2rem
+[coverage-image]: https://coveralls.io/repos/ggkovacs/node-px2rem/badge.svg?service=github&branch=master
+[coverage-url]: https://coveralls.io/github/ggkovacs/node-px2rem?branch=master

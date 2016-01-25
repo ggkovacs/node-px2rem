@@ -1,0 +1,27 @@
+body {
+    margin: 0 30px 20px 10px;
+    margin: 0 2.5rem 1.66667rem 0.83333rem;
+}
+
+header {
+    font-size: 28px;
+    font-size: 2.33333rem;
+}
+
+.box {
+    padding: 20px 0;
+    padding: 1.66667rem 0;
+}
+
+footer {
+    border: 1px solid #ccc;
+    padding-top: 17.975308624px;
+    padding-top: 1.49794rem;
+}
+
+@media screen and (max-width: 300px) {
+    body {
+        margin: 100px 200px 0 10px;
+        margin: 8.33333rem 16.66667rem 0 0.83333rem;
+    }
+}

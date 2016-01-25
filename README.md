@@ -1,5 +1,5 @@
 # Pixel to rem [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
-Version: **1.0.8**
+Version: **1.1.0**
 
 ## Installation
 
@@ -13,14 +13,15 @@ Run `npm install node-px2rem`
 var fs = require('fs');
 var px2rem = require('node-px2rem');
 var css = fs.readFileSync('main.css', 'utf8');
-var processedCss = px2rem.process(css, {
+var processedCSS = px2rem.process(css, {
     rootValue: 16
 });
 
-fs.writeFile('main-rem.css', processedCss, function(err) {
+fs.writeFile('main-rem.css', processedCSS, function(err) {
     if (err) {
         throw err;
     }
+
     console.log('Done.');
 });
 ```
@@ -52,7 +53,7 @@ Default:
 - `minPx` (Number) If minimum px greater than or equal can change from px to rem.
 
 # License
-MIT © 2015 Gergely Kovács (gg.kovacs@gmail.com)
+MIT © 2016 Gergely Kovács (gg.kovacs@gmail.com)
 
 [npm-image]: https://badge.fury.io/js/node-px2rem.svg
 [npm-url]: https://npmjs.org/package/node-px2rem

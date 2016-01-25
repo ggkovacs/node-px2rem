@@ -1,70 +1,24 @@
 'use strict';
 
-/**
- * Requires
- */
-var postcss = require('postcss');
+var postCSS = require('postcss');
 var extend = require('extend');
 
-/**
- * Px regular expression
- * @type {RegExp}
- */
-var pxRegEx = /(\d*\.?\d+)px/ig;
+var pxRegExp = /(\d*\.?\d+)px/ig;
 
-/**
- * Defaults
- * @type {Object}
- */
 var defaults = {
-    /**
-     * Root value
-     * @type {Number}
-     */
     rootValue: 16,
-
-    /**
-     * Unit precision
-     * @type {Number}
-     */
     unitPrecision: 5,
-
-    /**
-     * Property black list
-     * @type {Array}
-     */
     propertyBlackList: [],
-
-    /**
-     * Property white list
-     * @type {Array}
-     */
     propertyWhiteList: [],
-
-    /**
-     * Replace
-     * @type {Boolean}
-     */
     replace: false,
-
-    /**
-     * Media query
-     * @type {Boolean}
-     */
     mediaQuery: false,
-
-    /**
-     * Min pixel
-     * @type {Number}
-     */
-    minPx: 1,
+    minPx: 1
 };
 
-/**
- * To pixel
- * @param  {String} value
- * @return {Number|Boolean}
- */
+var o;
+
+var px2rem;
+
 function toPx(value) {
     var parts = /^(\d+\.?\d*)([a-zA-Z%]*)$/.exec(value);
     var number = parts[1];
@@ -77,16 +31,8 @@ function toPx(value) {
     } else if (unit === '%') {
         return (parseFloat(number) / 100) * 16;
     }
-
-    return false;
 }
 
-/**
- * To fixed
- * @param  {Number} number
- * @param  {Integer} precision
- * @return {Number}
- */
 function toFixed(number, precision) {
     var multiplier = Math.pow(10, precision + 1);
     var wholeNumber = Math.floor(number * multiplier);
@@ -94,119 +40,83 @@ function toFixed(number, precision) {
     return Math.round(wholeNumber / 10) * 10 / multiplier;
 }
 
-/**
- * Px replace
- * @param  {String} $1
- * @return {Number}
- */
-function pxReplace($1) {
-    $1 = parseFloat($1);
-    if (defaults.minPx >= $1) {
-        return $1 + 'px';
+function pxReplace(strArg) {
+    var str = parseFloat(strArg);
+
+    if (o.minPx >= str) {
+        return str + 'px';
     }
 
-    return toFixed($1 / toPx(defaults.rootValue), defaults.unitPrecision) + 'rem';
+    return toFixed(str / toPx(o.rootValue), o.unitPrecision) + 'rem';
 }
 
-/**
- * Equals
- * @param  {Object} decls
- * @param  {String} prop
- * @param  {String} value
- * @return {Boolean}
- */
 function equals(decls, prop, value) {
     return decls.some(function(decl) {
         return (decl.prop === prop && decl.value === value);
     });
 }
 
-/**
- * Pixel to rem
- * @param {Object} options
- */
 function Px2Rem(options) {
-    if (options) {
-        defaults = extend(true, {}, defaults, options);
-    }
+    o = extend(true, {}, defaults, options);
 }
 
-/**
- * Process
- * @param  {String} css
- * @param  {Object} options
- * @return {Object}
- */
 Px2Rem.prototype.process = function(css, options) {
-    return postcss(this.postCss).process(css, options).css;
+    return postCSS(this.postCSS).process(css, options).css;
 };
 
-/**
- * Post css
- * @param {String} css
- */
-Px2Rem.prototype.postCss = function(css) {
+Px2Rem.prototype.postCSS = function(css) {
     css.walkDecls(function(decl, i) {
-        if (defaults.propertyBlackList.indexOf(decl.prop) !== -1) {
+        var rule;
+        var value;
+
+        if (o.propertyBlackList.indexOf(decl.prop) !== -1) {
             return;
         }
 
-        if (defaults.propertyWhiteList.length > 0 &&
-            defaults.propertyWhiteList.indexOf(decl.prop) === -1) {
+        if (o.propertyWhiteList.length > 0 &&
+            o.propertyWhiteList.indexOf(decl.prop) === -1) {
             return;
         }
 
-        var rule = decl.parent;
-        var value = decl.value;
+        rule = decl.parent;
+        value = decl.value;
 
         if (value.indexOf('px') !== -1) {
-            value = value.replace(pxRegEx, pxReplace);
+            value = value.replace(pxRegExp, pxReplace);
 
             if (equals(rule.nodes, decl.prop, value)) {
                 return;
             }
 
-            if (defaults.replace) {
+            if (o.replace) {
                 decl.value = value;
             } else {
                 rule.insertAfter(i, decl.clone({
-                    value: value,
+                    value: value
                 }));
             }
         }
     });
 
-    if (defaults.mediaQuery) {
+    if (o.mediaQuery) {
         css.each(function(rule) {
             if (rule.type !== 'atrule' && rule.name !== 'media') {
                 return;
             }
 
             if (rule.params.indexOf('px') !== -1) {
-                rule.params = rule.params.replace(pxRegEx, pxReplace);
+                rule.params = rule.params.replace(pxRegExp, pxReplace);
             }
         });
     }
 };
 
-/**
- * Pixel to rem
- * @param  {Object} options
- * @return {Object}
- */
-var px2rem = function(options) {
+px2rem = function(options) {
     return new Px2Rem(options);
 };
 
-/**
- * Process
- * @param  {String} css
- * @param  {Object} options
- * @param  {Object} postCssOptions
- * @return {Object}
- */
-px2rem.process = function(css, options, postCssOptions) {
-    return new Px2Rem(options).process(css, postCssOptions);
+px2rem.process = function(css, options, postCSSOptions) {
+    return new Px2Rem(options).process(css, postCSSOptions);
 };
 
 module.exports = px2rem;

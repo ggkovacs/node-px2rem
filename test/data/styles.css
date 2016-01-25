@@ -1,0 +1,22 @@
+body {
+    margin: 0 30px 20px 10px;
+}
+
+header {
+    font-size: 28px;
+}
+
+.box {
+    padding: 20px 0;
+}
+
+footer {
+    border: 1px solid #ccc;
+    padding-top: 17.975308624px;
+}
+
+@media screen and (max-width: 300px) {
+    body {
+        margin: 100px 200px 0 10px;
+    }
+}

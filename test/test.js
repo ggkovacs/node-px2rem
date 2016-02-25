@@ -59,6 +59,15 @@ test('processed with rem `rootValue`', t => {
     t.is(processedCSS, validProcessedCSS);
 });
 
+test('processed with pt `rootValue`', t => {
+    const validProcessedCSS = fs.readFileSync('./valid/root-value-pt.css', 'utf8');
+    const processedCSS = px2rem.process(css, {
+        rootValue: '1pt'
+    });
+
+    t.is(processedCSS, validProcessedCSS);
+});
+
 test('processed with `unitPrecision`', t => {
     const validProcessedCSS = fs.readFileSync('./valid/unit-precision.css', 'utf8');
     const processedCSS = px2rem.process(css, {

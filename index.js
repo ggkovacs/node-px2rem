@@ -31,6 +31,8 @@ function toPx(value) {
     } else if (unit === '%') {
         return (parseFloat(number) / 100) * 16;
     }
+
+    return 1;
 }
 
 function toFixed(number, precision) {

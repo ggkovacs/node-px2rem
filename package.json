@@ -29,7 +29,7 @@
     "postcss": "^5.0.14"
   },
   "devDependencies": {
-    "ava": "^0.13.0",
+    "ava": "^0.14.0",
     "coveralls": "^2.11.6",
     "eslint": "^2.6.0",
     "eslint-config-mito": "^2.0.1",

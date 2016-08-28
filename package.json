@@ -32,7 +32,7 @@
     "ava": "^0.15.2",
     "coveralls": "^2.11.11",
     "eslint": "^3.0.1",
-    "eslint-config-mito": "^5.0.0",
+    "eslint-config-mito": "^6.0.0",
     "nyc": "^7.0.0",
     "pre-commit": "^1.1.3"
   },

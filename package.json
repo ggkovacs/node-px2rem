@@ -33,7 +33,7 @@
     "coveralls": "^2.11.11",
     "eslint": "^3.0.1",
     "eslint-config-mito": "^6.0.0",
-    "nyc": "^8.1.0",
+    "nyc": "^9.0.1",
     "pre-commit": "^1.1.3"
   },
   "engines": {

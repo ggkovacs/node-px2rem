@@ -53,7 +53,7 @@ Default:
 - `minPx` (Number) If minimum px greater than or equal can change from px to rem.
 
 # License
-MIT © 2016 Gergely Kovács (gg.kovacs@gmail.com)
+MIT © 2017 Gergely Kovács (gg.kovacs@gmail.com)
 
 [npm-image]: https://badge.fury.io/js/node-px2rem.svg
 [npm-url]: https://npmjs.org/package/node-px2rem

@@ -1,6 +1,6 @@
 {
   "name": "node-px2rem",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Pixel to rem postproccessor",
   "main": "index.js",
   "scripts": {

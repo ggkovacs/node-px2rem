@@ -1,5 +1,5 @@
 # Pixel to rem [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status][coverage-image]][coverage-url]
-Version: **1.1.5**
+Version: **1.1.6**
 
 ## Installation
 

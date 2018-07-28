@@ -1,6 +1,6 @@
 {
   "name": "node-px2rem",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Pixel to rem postproccessor",
   "main": "index.js",
   "scripts": {
@@ -37,7 +37,7 @@
     "pre-commit": "^1.2.2"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "eslintConfig": {
     "extends": "mito/legacy"

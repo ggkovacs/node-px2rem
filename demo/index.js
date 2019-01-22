@@ -1,16 +1,17 @@
 'use strict';
 
-var fs = require('fs');
-var px2rem = require('../index.js');
-var css = fs.readFileSync('main.css', 'utf8');
-var processedCSS = px2rem.process(css, {
-    mediaQuery: true
+const fs = require('fs');
+const path = require('path');
+const px2rem = require('../index.js');
+const css = fs.readFileSync(path.join(__dirname, 'main.css'), 'utf8');
+const processedCSS = px2rem.process(css, {
+  mediaQuery: true
 });
 
-fs.writeFile('main-rem.css', processedCSS, function(err) {
-    if (err) {
-        throw err;
-    }
+fs.writeFile(path.join(__dirname, 'main-rem.css'), processedCSS, (err) => {
+  if (err) {
+    throw err;
+  }
 
-    console.log('Done.');
+  console.log('Done.');
 });

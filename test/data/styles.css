@@ -15,6 +15,12 @@ footer {
     padding-top: 17.975308624px;
 }
 
+@media screen and (max-width: 300) {
+    body {
+        margin: 100px 200px 0 10px;
+    }
+}
+
 @media screen and (max-width: 300px) {
     body {
         margin: 100px 200px 0 10px;

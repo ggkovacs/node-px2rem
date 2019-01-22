@@ -19,6 +19,13 @@ footer {
     padding-top: 0.11235rem;
 }
 
+@media screen and (max-width: 300) {
+    body {
+        margin: 100px 200px 0 10px;
+        margin: 0.625rem 1.25rem 0 0.0625rem;
+    }
+}
+
 @media screen and (max-width: 300px) {
     body {
         margin: 100px 200px 0 10px;

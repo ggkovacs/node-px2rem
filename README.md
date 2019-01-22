@@ -1,5 +1,5 @@
 # Pixel to rem [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status][coverage-image]][coverage-url]
-Version: **1.1.7**
+Version: **2.0.0**
 
 ## Installation
 
@@ -10,19 +10,19 @@ Run `npm install node-px2rem`
 ```js
 'use strict';
 
-var fs = require('fs');
-var px2rem = require('node-px2rem');
-var css = fs.readFileSync('main.css', 'utf8');
-var processedCSS = px2rem.process(css, {
-    rootValue: 16
+const fs = require('fs');
+const px2rem = require('node-px2rem');
+const css = fs.readFileSync('main.css', 'utf8');
+const processedCSS = px2rem.process(css, {
+  rootValue: 16
 });
 
-fs.writeFile('main-rem.css', processedCSS, function(err) {
-    if (err) {
-        throw err;
-    }
+fs.writeFile('main-rem.css', processedCSS, (err) => {
+  if (err) {
+    throw err;
+  }
 
-    console.log('Done.');
+  console.log('Done.');
 });
 ```
 
@@ -34,13 +34,13 @@ Type: `Object | Null`
 Default:
 ```js
 {
-    rootValue: 16,
-    unitPrecision: 5,
-    propertyBlackList: [],
-    propertyWhiteList: [],
-    replace: false,
-    mediaQuery: false,
-    minPx: 1
+  rootValue: 16,
+  unitPrecision: 5,
+  propertyBlackList: [],
+  propertyWhiteList: [],
+  replace: false,
+  mediaQuery: false,
+  minPx: 1
 }
 ```
 
@@ -53,7 +53,7 @@ Default:
 - `minPx` (Number) If minimum px greater than or equal can change from px to rem.
 
 # License
-MIT © 2018 Gergely Kovács (gg.kovacs@gmail.com)
+MIT © 2019 Gergely Kovács (gg.kovacs@gmail.com)
 
 [npm-image]: https://badge.fury.io/js/node-px2rem.svg
 [npm-url]: https://npmjs.org/package/node-px2rem

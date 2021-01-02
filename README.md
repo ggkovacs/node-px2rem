@@ -1,5 +1,5 @@
 # Pixel to rem [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status][coverage-image]][coverage-url]
-Version: **2.0.4**
+Version: **2.0.5**
 
 ## Installation
 
@@ -53,7 +53,7 @@ Default:
 - `minPx` (Number) If minimum px greater than or equal can change from px to rem.
 
 # License
-MIT © 2019 Gergely Kovács (gg.kovacs@gmail.com)
+MIT © 2021 Gergely Kovács (gg.kovacs@gmail.com)
 
 [npm-image]: https://badge.fury.io/js/node-px2rem.svg
 [npm-url]: https://npmjs.org/package/node-px2rem

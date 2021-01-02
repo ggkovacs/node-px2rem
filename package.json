@@ -1,6 +1,6 @@
 {
   "name": "node-px2rem",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Pixel to rem postproccessor",
   "main": "index.js",
   "scripts": {
@@ -26,10 +26,10 @@
   "homepage": "https://github.com/ggkovacs/node-px2rem",
   "dependencies": {
     "extend": "^3.0.2",
-    "postcss": "^7.0.17"
+    "postcss": "^8.2.2"
   },
   "devDependencies": {
-    "ava": "^2.2.0",
+    "ava": "^3.15.0",
     "coveralls": "^3.0.5",
     "eslint": "^6.1.0",
     "eslint-config-mito": "^8.0.0",

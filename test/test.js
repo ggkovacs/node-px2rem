@@ -1,6 +1,6 @@
-import test from 'ava';
-import fs from 'fs';
-import px2rem from '../';
+const test = require('ava');
+const fs = require('fs');
+const px2rem = require('../');
 
 let css;
 

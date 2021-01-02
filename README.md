@@ -48,7 +48,7 @@ Default:
 - `unitPrecision` (Number) The decimal numbers to allow the REM units to grow to.
 - `propertyBlackList` (Array) The properties that can't change from px to rem.
 - `propertyWhiteList` (Array) The properties that can change from px to rem
-- `replace` (Boolean) replaces rules containing rems instead of adding fallbacks.
+- `replace` (Boolean) Replaces rules containing rems instead of adding fallbacks.
 - `mediaQuery` (Boolean) Allow px to be converted in media queries.
 - `minPx` (Number) If minimum px greater than or equal can change from px to rem.
 
